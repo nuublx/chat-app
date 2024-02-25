@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WebSockets</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css" />
     <script defer src="js/app.js"></script>
-</head>
-<body>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.4/socket.io.min.js"
+      integrity="sha512-skuhu6jj+sQnhLq1Txsack8VfnIrX8wL+MTFilYlFFT/NuLJm7eya7zOROs39Jy5cjASMEWqxLzijRVmKhsqWQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+  <body>
     <form>
-        <input type="text" id="message" placeholder="Type a message...">
-        <button type="submit">Send</button>
+      <input type="text" id="message" placeholder="Type a message..." />
+      <button type="submit">Send</button>
     </form>
-    <ul id="messages">
-
-    </ul>
-</body>
+    <ul id="messages"></ul>
+  </body>
 </html>

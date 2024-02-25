@@ -1,13 +1,13 @@
 "use strict";
 
-const socket = new WebSocket('ws://localhost:3000');
+const socket = io('ws://localhost:3500');
 
 function sendMessage(e) {
     e.preventDefault();
     const message = document.getElementById('message');
 
     if (!!message.value) {
-        socket.send(message.value);
+        socket.emit('message', message.value);
         message.value = '';
     }
     message.focus();
@@ -15,7 +15,7 @@ function sendMessage(e) {
 
 document.querySelector('form').addEventListener('submit', sendMessage);
 
-socket.addEventListener('message', ({ data }) => {
+socket.on('message', (data) => {
     const messages = document.getElementById('messages');
     const message = document.createElement('li');
     message.textContent = data;
