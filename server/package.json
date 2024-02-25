@@ -1,0 +1,21 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "buffer": "^6.0.3",
+    "typescript": "^5.3.3",
+    "ws": "^8.16.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.20"
+  }
+}
