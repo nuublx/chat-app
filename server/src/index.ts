@@ -1,7 +1,6 @@
-const ws = require("ws");
-const buffer = require("buffer/").Buffer;
+import ws from "ws";
 
-const server = new ws.Server({ port: "3000" }, () =>
+const server = new ws.Server({ port: 3000 }, () =>
   console.log("Server started ")
 );
 
@@ -9,8 +8,8 @@ server.on("connection", (socket) => {
   console.log("Client connected");
 
   socket.on("message", (message) => {
-    const b = buffer.from(message);
-    console.log(b.toString());
+    console.log(`Received: ${message}`);
+    console.log(message.toString());
     socket.send(`You said: ${message}`);
   });
 
