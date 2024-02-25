@@ -18,11 +18,24 @@ const io = new Server(server, {
 });
 
 io.on("connection", (socket) => {
-  console.log(`User ${socket.id} connected`);
+  console.log(`User ${socket.id.substring(0, 5)} connected`);
+
+  // Upon connection - only to user
+  socket.emit("message", "Welcome to Chat App!");
+
+  // Upon connection - to all others
+  socket.broadcast.emit(
+    "message",
+    `${socket.id.substring(0, 5)} has joined the chat!`
+  );
 
   socket.on("message", (data) => {
     console.log(data);
     io.emit("message", `${data}`);
+  });
+
+  socket.on("activity", (data) => {
+    socket.broadcast.emit("activity", `${data} is typing...`);
   });
 
   socket.on("close", () => {
