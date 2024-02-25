@@ -1,7 +1,13 @@
-import { createServer } from "http";
+import express from "express";
 import { Server } from "socket.io";
+const PORT = process.env.PORT || 3500;
 
-const server = createServer();
+const app = express();
+
+const server = app.listen(PORT, () => {
+  console.log(`listening on port ${PORT}`);
+});
+
 const io = new Server(server, {
   cors: {
     origin:
@@ -22,8 +28,4 @@ io.on("connection", (socket) => {
   socket.on("close", () => {
     console.log("Client disconnected");
   });
-});
-
-server.listen(3500, () => {
-  console.log("listening on port 3500");
 });
